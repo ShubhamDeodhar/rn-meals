@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Button,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { CATEGORIES } from '../Data/dummy-data';
 import CategoryGridTile from '../Components/CategoryGridTile';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';

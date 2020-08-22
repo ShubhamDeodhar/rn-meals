@@ -9,10 +9,10 @@ class Meal {
     duration,
     ingredients,
     steps,
-    isGlutenfree,
+    isGlutenFree,
     isVegan,
     isVegetarian,
-    isLactosefree
+    isLactoseFree
   ) {
     this.id = id;
     this.categoryIds = categoryIds;
@@ -23,10 +23,10 @@ class Meal {
     this.duration = duration;
     this.ingredients = ingredients;
     this.steps = steps;
-    this.isGlutenfree = isGlutenfree;
+    this.isGlutenFree = isGlutenFree;
     this.isVegan = isVegan;
     this.isVegetarian = isVegetarian;
-    this.isLactosefree = isLactosefree;
+    this.isLactoseFree = isLactoseFree;
   }
 }
 export default Meal;

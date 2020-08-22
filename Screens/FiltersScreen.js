@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Switch, Platform } from 'react-native';
 import Colors from '../Constants/Colors';
 import HeaderButton from '../Components/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../store/actions/meals';
 const RenderFilters = props => {
   return (
     <View style={styles.filterContainer}>
@@ -16,22 +18,24 @@ const RenderFilters = props => {
     </View>
   );
 };
+
 const FiltersScreen = props => {
   const [isGlutenFree, setIsGlutenFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVeg, setIsVeg] = useState(false);
   const [isLactoseFree, setIsLactoseFree] = useState(false);
 
+  const dispatch = useDispatch();
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
       vegan: isVegan,
       vegeterian: isVeg,
-      LactoseFree: isLactoseFree,
+      lactoseFree: isLactoseFree,
     };
-
-    console.log(appliedFilters);
-  }, [isGlutenFree, isLactoseFree, isVeg, isVegan]);
+    dispatch(setFilters(appliedFilters));
+  }, [isGlutenFree, isLactoseFree, isVeg, isVegan, dispatch]);
   useEffect(() => {
     props.navigation.setParams({ save: saveFilters });
   }, [saveFilters]);
